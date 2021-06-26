@@ -12,22 +12,35 @@ typedef struct{
 	int idEmpleado;
 	char nombre[51];
 	char apellido[51];
-	float salario;
+	int salario;
 	int sector;
 	int isEmpty;
-}eEmpleados;
+}Employee;
+
 #include "input.h"
 
 
-int InicializarEmpleados(eEmpleados[], int);
-int BuscarLibreEmpleados(eEmpleados[], int);
-int AltaEmpleados(eEmpleados[], int, int*);
-int BajaEmpleados(eEmpleados[], int);
-int ListarEmpleados(eEmpleados[], int);
-int OrdenarEmpleados(eEmpleados[], int);
-int BuscarEmpleado(eEmpleados[], int);
-int ListarEmpleados(eEmpleados[], int);
-void MostrarEmpleado(eEmpleados);
-int ModificacionEmpleados(eEmpleados[], int);
-int PromedioEmpleados(eEmpleados[], int);
+int initEmployees(Employee* list, int tam);
+int findFreeEmployee(Employee* list, int len);
+int findEmployeeById(Employee* list, int len, int id);
+
+int addEmployee(Employee* list, int len, int id, char name[],char lastName[],int salary,int sector);
+int dataChargeEmployee(Employee* list, int len);
+
+int printEmployees(Employee* list, int length);
+void showOneEmployee(Employee* list, int index);
+
+int controllerRemoveEmployee(Employee* list, int len);
+int removeEmployee(Employee* list, int len, int id);
+int editEmployee(Employee* list, int len, int id);
+
+int sortEmployees(Employee* list, int len, int order);
+int employee_sortByName(Employee* pEmpleadoUno, Employee* pEmpleadoDos);
+int employee_sortBySector(Employee* pEmpleadoUno, Employee* pEmpleadoDos);
+int buscarIdMayor(Employee* list, int len);
+
+int sumaSueldosEmpleados(Employee* list, int len);
+int contadorEmpleados(Employee* list, int len);
+float promedioSueldoEmpleados(Employee* list, int len);
+int salarioMayorPromedio(Employee* list, int len);
 #endif /* EMPLEADOS_H_ */
